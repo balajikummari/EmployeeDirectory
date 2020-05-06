@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EmployeeDirectory
+namespace EmployeeDirectory.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddEditEmployee.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddEditEmployeeView : UserControl
     {
-        public MainWindow()
+        public AddEditEmployeeView()
         {
             InitializeComponent();
         }

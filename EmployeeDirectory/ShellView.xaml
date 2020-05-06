@@ -1,0 +1,29 @@
+﻿<Window x:Class="EmployeeDirectory.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeDirectory.Views"
+        xmlns:views="clr-namespace:EmployeeDirectory.Views"
+        xmlns:viewModels ="clr-namespace:EmployeeDirectory.ViewModels;assembly=EmployeeDirectory.ViewModels"
+        xmlns:mvvm="clr-namespace:GenericMVVM;assembly=GenericMVVM"
+        mc:Ignorable="d"
+        mvvm:AutoViewModelLocator.AutoAttachViewModel="True"
+        SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:MainViewModel}">
+            <views:MainView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:AddEmployeeViewModel}">
+            <views:AddEditEmployeeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:EditEmployeeViewModel}">
+            <views:AddEditEmployeeView/>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+    </Grid>
+</Window>

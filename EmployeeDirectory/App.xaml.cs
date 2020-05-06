@@ -6,12 +6,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace EmployeeDirectory
+namespace EmployeeDirectory.Views
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            var bootstrapper = new Bootstrapper();
+            bootstrapper.Start();
+        }
     }
 }

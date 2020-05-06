@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6AA1EB2D-0E73-439A-9E0F-5019E932CBDF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>EmployeeDirectory</RootNamespace>
-    <AssemblyName>EmployeeDirectory</AssemblyName>
+    <RootNamespace>EmployeeDirectory.Views</RootNamespace>
+    <AssemblyName>EmployeeDirectory.Views</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.5.0.1\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,7 +64,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="AddEditEmployeeView.xaml.cs">
+      <DependentUpon>AddEditEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigFiles\AppSettingHandler.cs" />
+    <Compile Include="ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AddEditEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -63,10 +83,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="ConfigFiles\Bootstrapper.cs" />
+    <Compile Include="MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -86,13 +111,32 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ConfigFiles\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="ConfigFiles\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeeDirectory.DataAccess\EmployeeDirectory.DataAccess.csproj">
+      <Project>{E91F994B-D73F-42EC-AFC8-7EB14BDCA87E}</Project>
+      <Name>EmployeeDirectory.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeDirectory.Models\EmployeeDirectory.Models.csproj">
+      <Project>{1543a718-70f4-4ecf-b2b0-253c1015f840}</Project>
+      <Name>EmployeeDirectory.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeDirectory.ViewModels\EmployeeDirectory.ViewModels.csproj">
+      <Project>{1aaa3d33-1dd8-4d83-bedf-eee25ea43c5c}</Project>
+      <Name>EmployeeDirectory.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenericMVVM\GenericMVVM.csproj">
+      <Project>{4c02e686-c865-4f90-ad45-6753dd63cdd7}</Project>
+      <Name>GenericMVVM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
