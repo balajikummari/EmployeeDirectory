@@ -15,7 +15,7 @@ using System.Runtime.CompilerServices;
 
 namespace EmployeeDirectory.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : INotifyPropertyChanged 
     {
     
         private IRepository<Employee> employeeRepository;
@@ -67,7 +67,7 @@ namespace EmployeeDirectory.ViewModels
 
         private void ReloadList()
         {
-            var employees = employeeRepository.GetAll();
+            var employees = employeeRepository.GetAll().ToList();
             EmployeeList = new ObservableCollection<Employee>(employees);
         }
 

@@ -8,7 +8,7 @@
         xmlns:mvvm="clr-namespace:GenericMVVM;assembly=GenericMVVM"
         mvvm:Behaviors.LoadedEventHandlerName="OnViewLoaded"
         mc:Ignorable="d"
-        Height="320" Width="580" Background="AliceBlue"
+        Height="auto" Width="auto" Background="AliceBlue"
         >
     <UserControl.Resources>
         <DataTemplate x:Key="EmployeeTemplate" DataType="{x:Type models:Employee}" >

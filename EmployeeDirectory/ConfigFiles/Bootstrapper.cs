@@ -24,10 +24,15 @@ namespace EmployeeDirectory.Views
             container.Kernel.Resolver.AddSubResolver(new AppSettingHandler());
             container.Register(
                 Component.For<IRepository<Employee>>()
-                    .ImplementedBy<XMLEmployeeRepository>()
-                    .DependsOn(Dependency.OnValue<string>("C:\\Users\\Bobby\\source\\repos\\EmployeeDirectory\\EmployeeDirectory.DataAccess\\EmployeeDB.xml")),
+                    .ImplementedBy<SqlEmployeeRepository>()
+                     .LifestyleTransient()
+                   // .DependsOn(Dependency.OnValue<string>("C:\\Users\\Bobby\\source\\repos\\EmployeeDirectory\\EmployeeDirectory.DataAccess\\EmployeeDB.xml"))
+                   ,
                 Component.For<IEventAggregator>()
                     .ImplementedBy<EventAggregator>()
+                    .LifestyleSingleton(),
+                Component.For<EmployeeDbContext>()
+                    .ImplementedBy<EmployeeDbContext>()
                     .LifestyleSingleton()
               );
             RegisterViewModels();
