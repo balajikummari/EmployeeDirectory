@@ -24,7 +24,7 @@ namespace EmployeeDirectory.Views
             container.Kernel.Resolver.AddSubResolver(new AppSettingHandler());
             container.Register(
                 Component.For<IRepository<Employee>>()
-                    .ImplementedBy<SqlEmployeeRepository>()
+                    .ImplementedBy<EmployeeRepository>()
                      .LifestyleTransient()
                    // .DependsOn(Dependency.OnValue<string>("C:\\Users\\Bobby\\source\\repos\\EmployeeDirectory\\EmployeeDirectory.DataAccess\\EmployeeDB.xml"))
                    ,

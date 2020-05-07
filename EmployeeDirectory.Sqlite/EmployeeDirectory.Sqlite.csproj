@@ -64,10 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeDbContext.cs" />
-    <Compile Include="InitializeDb.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlEmployeeRepository.cs" />
+    <Compile Include="EmployeeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

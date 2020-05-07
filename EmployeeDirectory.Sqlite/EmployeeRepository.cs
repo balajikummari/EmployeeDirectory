@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace EmployeeDirectory.Sqlite
 {
-    public class SqlEmployeeRepository : IRepository<Employee>
+    public class EmployeeRepository : IRepository<Employee>
     {
         private readonly EmployeeDbContext Db;
-        public SqlEmployeeRepository()
+        public EmployeeRepository()
         {
             Db = new EmployeeDbContext();
         }
@@ -23,7 +23,6 @@ namespace EmployeeDirectory.Sqlite
         public void Change(Employee newEntity)
         {
             Db.Employees.AddOrUpdate(newEntity);
-            Db.SaveChanges();
         }
 
         public IEnumerable<Employee> GetAll()
