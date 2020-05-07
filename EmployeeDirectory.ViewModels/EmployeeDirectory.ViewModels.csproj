@@ -51,13 +51,13 @@
     <Compile Include="SwitchToVm.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EmployeeDirectory.DataAccess\EmployeeDirectory.DataAccess.csproj">
-      <Project>{E91F994B-D73F-42EC-AFC8-7EB14BDCA87E}</Project>
-      <Name>EmployeeDirectory.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EmployeeDirectory.Models\EmployeeDirectory.Models.csproj">
       <Project>{1543A718-70F4-4ECF-B2B0-253C1015F840}</Project>
       <Name>EmployeeDirectory.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeDirectory.Sqlite\EmployeeDirectory.Sqlite.csproj">
+      <Project>{62806fe8-c73e-4f97-890f-0ca21b1305f3}</Project>
+      <Name>EmployeeDirectory.Sqlite</Name>
     </ProjectReference>
     <ProjectReference Include="..\GenericMVVM\GenericMVVM.csproj">
       <Project>{4c02e686-c865-4f90-ad45-6753dd63cdd7}</Project>

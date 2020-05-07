@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using EmployeeDirectory.Sqlite;
 
 namespace EmployeeDirectory.Views
 {
@@ -15,6 +16,10 @@ namespace EmployeeDirectory.Views
     {
         public App()
         {
+            using (var db = new EmployeeDbContext())
+            {
+                var s = db.Employees.ToList();
+            }
             var bootstrapper = new Bootstrapper();
             bootstrapper.Start();
         }

@@ -2,7 +2,7 @@ using Castle.Core;
 using Castle.Facilities.TypedFactory;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
-using EmployeeDirectory.DataAccess;
+using EmployeeDirectory.Sqlite;
 using EmployeeDirectory.Models;
 using EmployeeDirectory.ViewModels;
 using System;

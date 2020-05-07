@@ -1,5 +1,4 @@
-﻿using EmployeeDirectory.DataAccess;
-using EmployeeDirectory.Models;
+﻿using EmployeeDirectory.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,13 +11,14 @@ using GenericMVVM;
 using System.Configuration;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using EmployeeDirectory.Sqlite;
 
 namespace EmployeeDirectory.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged 
     {
     
-        private IRepository<Employee> employeeRepository;
+        private readonly IRepository<Employee> employeeRepository;
         private ObservableCollection<Employee> employeeList;
         public ObservableCollection<Employee> EmployeeList {
             get { return employeeList; }
@@ -29,9 +29,9 @@ namespace EmployeeDirectory.ViewModels
 
 
         #region Commands
-        private ICommand addEmployeeCommand;
-        private ICommand removeCommand;
-        private ICommand editEmployeeCommand;
+        private readonly ICommand addEmployeeCommand;
+        private readonly ICommand removeCommand;
+        private readonly ICommand editEmployeeCommand;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -67,7 +67,8 @@ namespace EmployeeDirectory.ViewModels
 
         private void ReloadList()
         {
-            var employees = employeeRepository.GetAll().ToList();
+
+            var employees = employeeRepository.GetAll();
             EmployeeList = new ObservableCollection<Employee>(employees);
         }
 

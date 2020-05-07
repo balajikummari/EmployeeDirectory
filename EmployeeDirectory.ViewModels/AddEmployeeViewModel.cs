@@ -1,11 +1,7 @@
-﻿using EmployeeDirectory.DataAccess;
+﻿using EmployeeDirectory.Sqlite;
 using EmployeeDirectory.Models;
 using GenericMVVM;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace EmployeeDirectory.ViewModels
 {
